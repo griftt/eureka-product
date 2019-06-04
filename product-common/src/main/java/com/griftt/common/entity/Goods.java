@@ -1,4 +1,4 @@
-package com.griftt.eurekaproduct.entity;
+package com.griftt.common.entity;
 
 import lombok.Data;
 

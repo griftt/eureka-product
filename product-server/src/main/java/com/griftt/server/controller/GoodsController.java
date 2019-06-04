@@ -1,7 +1,7 @@
-package com.griftt.eurekaproduct.controller;
+package com.griftt.common.main.java.com.griftt.server.controller;
 
-import com.griftt.eurekaproduct.entity.Goods;
-import com.griftt.eurekaproduct.service.GoodsService;
+import com.griftt.common.entity.Goods;
+import com.griftt.common.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("goods")
 public class GoodsController {
-
     @Autowired
     private GoodsService goodsService;
     @GetMapping("/all")

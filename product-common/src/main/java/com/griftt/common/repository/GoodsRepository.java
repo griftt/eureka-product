@@ -1,6 +1,6 @@
-package com.griftt.eurekaproduct.repository;
+package com.griftt.common.repository;
 
-import com.griftt.eurekaproduct.entity.Goods;
+import com.griftt.common.entity.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

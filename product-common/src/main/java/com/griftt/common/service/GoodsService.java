@@ -1,8 +1,7 @@
-package com.griftt.eurekaproduct.service;
+package com.griftt.common.service;
 
-import com.griftt.eurekaproduct.entity.Goods;
+import com.griftt.common.entity.Goods;
 
-import javax.validation.constraints.Max;
 import java.util.List;
 
 public interface GoodsService {
