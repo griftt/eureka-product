@@ -9,7 +9,21 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
-
+  rabbitmq:
+    username: admin
+    password: 123456
+    host: localhost
+    port: 5672
+    ## 消息发送确认(用来确认生产者将消息发送给交换器,交换器传递给队列的过程中,消息是否成功投递)
+    #publisher-confirms=true
+    ## 消息发送失败退回(消息投递失败时触发)
+    #spring.rabbitmq.publisher-returns=true
+    ## 消息接收确认,采用手动应答(none 不确认;auto 自动确认;manual 手动确认)
+    #spring.rabbitmq.listener.simple.acknowledge-mode=manual
+    ## 并发消费数量
+    #spring.rabbitmq.listener.simple.concurrency=5
+    ## 最大并发消费数量
+    #spring.rabbitmq.listener.simple.max-concurrency=10
 eureka:
   client:
     service-url:
