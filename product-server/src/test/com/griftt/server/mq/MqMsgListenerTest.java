@@ -15,16 +15,5 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 public class MqMsgListenerTest {
 
-    @Autowired
-    private MqMsgListener msgListener;
-    @Autowired
-    private MqSender mqSender;
-    @Autowired
-    private Receiver receiver;
-    @Autowired
-    private Sender sender;
-    @Test
-    public void process() {
-        sender.send();
-    }
+
 }
