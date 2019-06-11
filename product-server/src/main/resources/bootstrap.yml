@@ -1,22 +1,23 @@
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
+      profile: dev
+      label: master
 
-#spring:
-##  application:
-##    name: eureka-product
-##  datasource:
-##    username: root
-##    password: 123456
-##    url: jdbc:mysql://localhost:3306/eureka?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
-##    driver-class-name: com.mysql.jdbc.Driver
-##  jpa:
-##    show-sql: true
-##  rabbitmq:
-##    username: admin
-##    password: 123456
-##    host: localhost
-##    port: 5672
-##server:
-##  port: 8182
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  bus-refresh # 暴露bus-refresh为了接到通知
     ## 消息发送确认(用来确认生产者将消息发送给交换器,交换器传递给队列的过程中,消息是否成功投递)
     #publisher-confirms=true
     ## 消息发送失败退回(消息投递失败时触发)
@@ -27,9 +28,4 @@
     #spring.rabbitmq.listener.simple.concurrency=5
     ## 最大并发消费数量
     #spring.rabbitmq.listener.simple.max-concurrency=10
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: goods
+
