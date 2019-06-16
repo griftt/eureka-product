@@ -2,6 +2,7 @@ package com.griftt.server.controller;
 
 
 import com.griftt.server.stream.StreamClient;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -21,6 +22,8 @@ public class EnvController {
     @Autowired
     private StreamClient streamClient;
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Value("${env}")
     private String env;
@@ -34,7 +37,11 @@ public class EnvController {
     @GetMapping("stream")
     public String testSTreamMq(){
         streamClient.outputMsg().send(MessageBuilder.withPayload("hello"+new Date()).build());
-
+        return  "ok";
+    }
+    @GetMapping("send")
+    public String sendMq(){
+       amqpTemplate.convertAndSend("ex","#","hello");
         return  "ok";
     }
 }
