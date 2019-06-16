@@ -8,6 +8,22 @@ spring:
         service-id: config
       profile: dev
       label: master
+    stream:
+      bindings:
+        myOutput:
+          destination: mex  #绑定交换机
+        myInput:
+          destination: mex
+          group: product-in #分组
+          content-type: application/json  #将消息json显示在监控台
+#    rabbit:
+#      bindings:
+#        myOutput:
+#          producer:
+#            ttl: 3000 #消息3秒不消费转入私信队列
+#            autoBindDlq: true #启动私信队列
+#            deadLetterExchange: myInput #绑定exchange
+#            deadLetterQueueName: myInput.product-in #死信队列名字：exchanName.queueName
 
 eureka:
   client:
