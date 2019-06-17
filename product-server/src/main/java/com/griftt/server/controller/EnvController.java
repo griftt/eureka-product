@@ -39,6 +39,14 @@ public class EnvController {
         streamClient.outputMsg().send(MessageBuilder.withPayload("hello"+new Date()).build());
         return  "ok";
     }
+    @GetMapping("sto")
+    public String convertAndSend(){
+        String msg="hello"+new Date();
+        amqpTemplate.convertAndSend("productInfo","#",msg);
+        return  "ok";
+    }
+
+
     @GetMapping("send")
     public String sendMq(){
        amqpTemplate.convertAndSend("ex","#","hello");
