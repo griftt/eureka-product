@@ -12,10 +12,21 @@ spring:
       bindings:
         myOutput:
           destination: mex  #绑定交换机
+          producer:
+            ttl: 3000 #消息3秒不消费转入私信队列
+            autoBindDlq: true #启动私信队列
+            deadLetterExchange: mex #绑定exchange
+            deadLetterQueueName: mex.myOutput #死信队列名字：exchanName.queueName
         myInput:
           destination: mex
           group: product-in #分组
           content-type: application/json  #将消息json显示在监控台
+          consumer:
+            max-attempts: 2
+            autoBindDlq: true #启用死信队列，默认会生成一个DLX EXCHANGE，当消息重复消费失败后
+            dlqDeadLetterExchange: input-deadLetter.DLX  #如果该列声明，那么deadLetterExchange也要声明，这个保持一致
+            deadLetterExchange: input-deadLetter.DLX #与dlqDeadLetterExchange保持一致
+            requeueRejected: true
 #    rabbit:
 #      bindings:
 #        myOutput:

@@ -33,6 +33,11 @@ public class EnvController {
         return  env;
     }
 
+    @GetMapping("test2")
+    public String getEnv2(){
+        return  env;
+    }
+
 
     @GetMapping("stream")
     public String testSTreamMq(){

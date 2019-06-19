@@ -11,8 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class StreamReceiver {
 
+    /**
+     * 发送消息
+     * @param msg
+     * @return
+     */
     @StreamListener(StreamClient.Input)
-    @SendTo(StreamClient.Return) //处理消息后返回信息
+    @SendTo(StreamClient.Return) //处理消息后返回信息,返回信息为： true
     public boolean process(Object msg){
         System.err.println(msg);
        log.info("msg1：{}",msg);
