@@ -12,4 +12,6 @@ public interface GoodsService {
      */
     List<Goods> getAllOnSaleGoods();
 
+    Goods getGoodsById(Integer id);
+
 }

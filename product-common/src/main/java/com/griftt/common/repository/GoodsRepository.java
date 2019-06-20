@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface GoodsRepository extends JpaRepository<Goods,Integer> {
     List<Goods> findAllByRecordStatus(Integer recordStatus);
+
+    Goods findAllById(Integer id);
 }

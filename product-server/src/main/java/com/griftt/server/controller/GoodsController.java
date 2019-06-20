@@ -18,4 +18,9 @@ public class GoodsController {
         return  goodsService.getAllOnSaleGoods();
     }
 
+    @RequestMapping("one")
+    public Goods getAllGoodById(){
+        return  goodsService.getGoodsById(21);
+    }
+
 }

@@ -18,4 +18,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> getAllOnSaleGoods() {
         return goodsRepository.findAllByRecordStatus(1);
     }
+
+    @Override
+    public Goods getGoodsById(Integer id) {
+        return goodsRepository.findAllById(id);
+    }
 }
