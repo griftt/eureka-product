@@ -35,16 +35,6 @@ spring:
 #            autoBindDlq: true #启动私信队列
 #            deadLetterExchange: myInput #绑定exchange
 #            deadLetterQueueName: myInput.product-in #死信队列名字：exchanName.queueName
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/  #服务中心的地址
-management:
-  endpoints:
-    web:
-      exposure:
-        include:  bus-refresh # 暴露bus-refresh为了接到通知
     ## 消息发送确认(用来确认生产者将消息发送给交换器,交换器传递给队列的过程中,消息是否成功投递)
     #publisher-confirms=true
     ## 消息发送失败退回(消息投递失败时触发)
@@ -55,6 +45,15 @@ management:
     #spring.rabbitmq.listener.simple.concurrency=5
     ## 最大并发消费数量
     #spring.rabbitmq.listener.simple.max-concurrency=10
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  #服务中心的地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  bus-refresh # 暴露bus-refresh为了接到通知
 
 logging:
   level:
