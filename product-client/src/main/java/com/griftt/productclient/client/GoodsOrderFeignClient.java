@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @FeignClient(name = "product",fallback = GoodsOrderFeignClient.ProductClientFallBack.class)
-@EntityScan("com.griftt.common")
 public interface GoodsOrderFeignClient {
 
     @GetMapping("/goods/all")
@@ -24,12 +24,18 @@ public interface GoodsOrderFeignClient {
 
         @Override
         public List<Goods> getGoodsList() {
-            return null;
+            Goods goods = new Goods();
+            goods.setBatchNo(" 服务降级启动list");
+            List<Goods> list = new ArrayList<>();
+             list.add(goods);
+             return list;
         }
 
         @Override
         public Goods getGoodsById(Integer id) {
-            return null;
+            Goods goods = new Goods();
+            goods.setBatchNo(" 服务降级启动one ");
+            return goods;
         }
     }
 }

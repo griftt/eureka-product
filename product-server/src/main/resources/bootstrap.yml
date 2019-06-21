@@ -56,3 +56,6 @@ management:
     ## 最大并发消费数量
     #spring.rabbitmq.listener.simple.max-concurrency=10
 
+logging:
+  level:
+    com.griftt.productclient.client: debug
