@@ -23,4 +23,11 @@ public class GoodsServiceImpl implements GoodsService {
     public Goods getGoodsById(Integer id) {
         return goodsRepository.findAllById(id);
     }
+
+    @Override
+    public Goods updateGoodsById(Integer id,String batchNo) {
+        Goods goods = goodsRepository.findAllById(id);
+        goods.setBatchNo(batchNo);
+        return goods;
+    }
 }

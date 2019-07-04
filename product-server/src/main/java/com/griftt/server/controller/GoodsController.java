@@ -31,4 +31,10 @@ public class GoodsController {
         return  goodsService.getGoodsById(id);
     }
 
+    @RequestMapping("jta")
+    public Goods testjta(Integer id,String batchNo){
+        log.debug("start test jta");
+          return  goodsService.updateGoodsById(id,batchNo);
+    }
+
 }
