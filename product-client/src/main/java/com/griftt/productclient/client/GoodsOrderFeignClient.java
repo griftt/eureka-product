@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public interface GoodsOrderFeignClient {
     public Goods getGoodsById(Integer id);
 
     @GetMapping("/goods/jta")
-    public Goods updateGoodsById(Integer id,String batchNo);
+    public Goods updateGoodsById(@RequestParam Integer id, @RequestParam String batchNo);
 
 
     @Component

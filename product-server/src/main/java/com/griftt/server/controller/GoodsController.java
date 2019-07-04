@@ -18,7 +18,10 @@ public class GoodsController {
     @RequestMapping("all")
     public List<Goods> getAllGoods(){
         return  goodsService.getAllOnSaleGoods();
+
     }
+
+
     @RequestMapping("more")
     public List<Goods> getAllGoodsMore(){
         log.debug("hello seluth more");
@@ -32,7 +35,7 @@ public class GoodsController {
     }
 
     @RequestMapping("jta")
-    public Goods testjta(Integer id,String batchNo){
+    public Goods testjta(@RequestParam  Integer id, @RequestParam  String batchNo){
         log.debug("start test jta");
           return  goodsService.updateGoodsById(id,batchNo);
     }

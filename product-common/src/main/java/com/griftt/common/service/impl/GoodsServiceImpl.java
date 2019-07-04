@@ -28,6 +28,7 @@ public class GoodsServiceImpl implements GoodsService {
     public Goods updateGoodsById(Integer id,String batchNo) {
         Goods goods = goodsRepository.findAllById(id);
         goods.setBatchNo(batchNo);
+        goodsRepository.flush();
         return goods;
     }
 }
